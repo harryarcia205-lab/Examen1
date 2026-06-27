@@ -3,8 +3,9 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class Fabrica extends Model
+class Factory extends Model
 {
     protected $fillable=[
         'Company_name',
@@ -14,9 +15,9 @@ class Fabrica extends Model
         'physical_address',
         'supplier_status'];
 
-         public function shipping_address()
+        public function factory(): HasMany 
     {
-        return $this->hasMany(Shipping_address::class());
+        return $this->hasMany(related: FactoryArticles::class);
         
     }
 }

@@ -3,6 +3,8 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class order extends Model
 {
@@ -16,13 +18,15 @@ class order extends Model
         'additional_notes',
         'order_status'];
 
-        public function client()
+        public function client(): BelongsTo
     {
-        return $this->hasOne(client::client());
+        return $this->belongsTo(related: client::class);
 }
 
     public function Shipping_address()
     {
-        return $this->belongsTo(Shipping_address::Shipping_address());
-}
+        return $this->belongsTo(related: shippingAddress::class);
+    }
+
+
 }

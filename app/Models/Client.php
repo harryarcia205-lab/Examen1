@@ -3,28 +3,22 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Client extends Model
 {
-protected $fillable=[
+    protected $fillable=[
         'name',
         'email',
-        'phone number',
+        'phone_number',
         'balance',
-        'credit limit',
+        'credit_limit',
         'discount',
-        'registration date',
-        'client status'];
+        'registration_date',
+        'client_status'];
 
-        public function shipping_address()
+        public function client(): HasMany
     {
-        return $this->hasMany(Shipping_address::class());
-        
+        return $this->hasMany(related: client::class);
     }
-
-    public function order()
-    {
-        return $this->hasMany(Order::class); 
-        
-    }
-    }
+}
