@@ -30,4 +30,25 @@ class OrderLineRequest extends FormRequest
 
         ];
     }
+
+    public function messages(): array 
+    {
+        return [
+            'article_id.integer' => 'La cantidad debe ser un numero entero',
+            'article_id.required' => 'La cantidad es requerida',
+            'article_id.exists' => 'El articulo seleccionado no existe',
+
+            'requested_quantity.integer' => 'La cantidad debe ser un numero entero',
+            'request_quantity.required' => 'La cantidad solicitada es requerida',
+            'request_quantity.min' => 'El minimo de caracteres es 1',
+
+            'unit_price.numeric' => 'El precio unitario debe ser un numero',
+            'unit_price.required' => 'El precio unitario es requerida',
+            'unit_price.min' => 'El minimo de caracteres es 0',
+
+            'line_subtotal.numeric' => 'El subtotal debe ser un numero',
+            'line_subtotal.required' => 'El subtotal debe ser requerido',
+            'line_subtotal.min' => 'El minimo de caracteretes es 0',
+        ];
+}
 }

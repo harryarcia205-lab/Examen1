@@ -33,4 +33,20 @@ class OrderRequest extends FormRequest
             'order_status' => 'string|required|min:3|max:20'
         ];
     }
+
+    public function messages(): array
+    {
+        return [
+            'client_id.integer' => 'El cliente debe ser un numero',
+            'client_id.required' => 'El cliente debe ser requerido',
+            'client_id.exists' => 'El cliente seleccionado no existe',
+
+            'address_id.integer' => 'La direccion debe ser un numero',
+            'address_id.required' => 'La direccion debe ser requerida',
+            'address_id.exists' => 'La direccion seleccionada no existe',
+
+            'date_time_creation.required' => 'La fecha de creacion es requerida',
+            'date_time_creation.date' => 'Debe ingresar una fecha valida',
+    
+            'subtotal.numeric' => 'El subtotal debe ser un numero',
 }
