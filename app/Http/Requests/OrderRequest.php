@@ -49,4 +49,28 @@ class OrderRequest extends FormRequest
             'date_time_creation.date' => 'Debe ingresar una fecha valida',
     
             'subtotal.numeric' => 'El subtotal debe ser un numero',
+            'subtotal.required' => 'El subtotal debe ser requerido',
+            'subtotal.min' => 'El minimo de caracteres es 0',
+
+            'tax_amount.numeric' => 'El impuesto debe ser un numero',
+            'tax_amount.required' => 'El impuesto debe ser requerido',
+            'tax_amount.min' => 'El minimo de caracteres es 0',
+
+            'grand_total.numeric' => 'El total deber ser un numero',
+            'grand_total.required' => 'El total es requerido',
+            'grand_total.min' => 'El minimo de caracteres es 0',
+
+            'additional_notes.string' => 'Las notas solo permite caracteres',
+            'additional_notes.max' => 'El maximo de caracteres es 250',
+
+            'order_status.string' => 'El estado de la orden solo permite caracteres',
+            'order_status.required'=> 'El estado de la orden es requerido',
+            'order_status.min' => 'El minimo de caracteres es 3',
+            'order_status.max' => ' El maximo de caracteres es 20',
+
+        ];
+
+
+            
+    }
 }

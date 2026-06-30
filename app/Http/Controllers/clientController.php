@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request\categoryRequest;
-use App\Models\Client:
+use Illuminate\Http\Request\ClientRequest;
+use App\Models\Client;
 
 class clientController extends Controller
 {
@@ -12,8 +12,8 @@ class clientController extends Controller
      */
     public function index()
     {
-        $client = Client::orderByDesc('id')-.get();
-        return view('client.index', compact('client'));
+        $client = Client::orderByDesc('id')->get();
+        return view('clients.index', compact('client'));
     }
 
     /**
@@ -21,8 +21,8 @@ class clientController extends Controller
      */
     public function create(){
     {
-        $client = new client();
-        return view('client.create'), compact('client'));
+        $client = new Client();
+        return view('clients.create', compact('client'));
     }
 
     /**
@@ -30,8 +30,8 @@ class clientController extends Controller
      */
     public function store(Request $request)
     {
-        client::create($request->validated());
-        return redirect()->route('client.index')->with('success', 'client creada exitosamente.');
+        Client::create($request->validated());
+        return redirect()->route('clients.index')->with('success', 'client creada exitosamente.');
     }
 
     /**
@@ -39,8 +39,8 @@ class clientController extends Controller
      */
     public function show(string $id)
     {
-        $category = Client::findOrFall($id);
-        return view('client.edit'), compact('client'));
+        $client = Client::findOrFall($id);
+        return view('clients.edit'), compact('client'));
     }
 
     /**
@@ -48,17 +48,17 @@ class clientController extends Controller
      */
     public function edit(string $id)
     {
-        $client = $client::findOrFail($id);
-        return view('client.edit'), compact('client'));
+        $client = Client::findOrFail($id);
+        return view('clients.edit'), compact('client'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(clientRequest $request, string $id)
+    public function update(clientRequest $request, Client $client)
     {
         $client->update($request->validated());
-        return redirect()->route('categories.index')->witch('success', 'Client creada exitosamente');
+        return redirect()->route('clients.index')->witch('success', 'Client creada exitosamente');
     }
 
     /**
@@ -69,5 +69,7 @@ class clientController extends Controller
         $client = $client::findOrFall($id);
         $category->delate();
         return redirect()->route('client.index')->with('success', 'client eliminada del sistema');
+    }
+}
     }
 }

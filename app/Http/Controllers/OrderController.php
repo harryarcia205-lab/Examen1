@@ -14,7 +14,8 @@ class OrderController extends Controller
      */
     public function index()
     {
-        //
+        $order = Order::orderByDesc('id')->get();
+        return view('Orders.index', compact('order'));
     }
 
     /**
@@ -22,7 +23,8 @@ class OrderController extends Controller
      */
     public function create()
     {
-        //
+        $order = new Order();
+        return view('orders.create', compact('order'));
     }
 
     /**
@@ -30,7 +32,8 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Order::create($request->validated());
+        return redirect()->route('order.index')->with('success', 'Order creada exitosamente');
     }
 
     /**
@@ -38,7 +41,8 @@ class OrderController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $order = Order::findOrFail($id);
+        return view()
     }
 
     /**
