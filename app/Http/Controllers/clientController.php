@@ -2,74 +2,68 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request\ClientRequest;
+use App\Http\Requests\ClientRequest;
 use App\Models\Client;
 
-class clientController extends Controller
+class ClientController
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $client = Client::orderByDesc('id')->get();
-        return view('clients.index', compact('client'));
+        $clients = Client::orderByDesc('id')->paginate(20);
+        return view('clients.index', compact('clients'));
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create(){
+    public function create()
     {
-        $client = new Client();
-        return view('clients.create', compact('client'));
+        return view('clients.create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(ClientRequest $request)
     {
         Client::create($request->validated());
-        return redirect()->route('clients.index')->with('success', 'client creada exitosamente.');
+        return redirect()->route('clients.index')->with('success', 'El cliente se ha creado correctamente.');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Client $client)
     {
-        $client = Client::findOrFall($id);
-        return view('clients.edit'), compact('client'));
+        return view('clients.show', compact('client'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Client $client)
     {
-        $client = Client::findOrFail($id);
-        return view('clients.edit'), compact('client'));
+        return view('clients.edit', compact('client'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(clientRequest $request, Client $client)
+    public function update(ClientRequest $request, Client $client)
     {
         $client->update($request->validated());
-        return redirect()->route('clients.index')->witch('success', 'Client creada exitosamente');
+        return redirect()->route('clients.index')->with('success', 'El cliente se ha actualizado correctamente.');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id){
+    public function destroy(Client $client)
     {
-        $client = $client::findOrFall($id);
-        $category->delate();
-        return redirect()->route('client.index')->with('success', 'client eliminada del sistema');
-    }
-}
+        $client->delete();
+        return redirect()->route('clients.index')->with('success', 'El cliente se ha eliminado correctamente.');
     }
 }

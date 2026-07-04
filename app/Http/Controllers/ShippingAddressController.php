@@ -2,63 +2,62 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Models\ShippingAddress;
+use App\Http\Requests\ShippingAddressRequest;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\View\View;
 
-class ShippingAddressController extends Controller
+class ShippingAddressController
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
+    public function index(): View
     {
-        //
+        $shippingAddresses = ShippingAddress::with('customer')->get();
+
+        return view('shipping-addresses.index', compact('shippingAddresses'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+    public function create(): View
     {
-        //
+        return view('shipping-addresses.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
+    public function store(ShippingAddressRequest $request): RedirectResponse
     {
-        //
+        ShippingAddress::create($request->validated());
+
+        return redirect()->route('shipping-addresses.index')
+            ->with('success', 'Direccion de envio creada correctamente.');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
+    public function show(ShippingAddress $shippingAddress): View
     {
-        //
+        $shippingAddress = ShippingAddress::with('customer')->findOrFail($shippingAddress->id);
+
+        return view('shipping-addresses.show', compact('shippingAddress'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
+    public function edit(string $id): View
     {
-        //
+        $shippingAddress = ShippingAddress::findOrFail($id);
+
+        return view('shipping-addresses.edit', compact('shippingAddress'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
+    public function update(ShippingAddressRequest $request, string $id): RedirectResponse
     {
-        //
+        $shippingAddress = ShippingAddress::findOrFail($id);
+        $shippingAddress->update($request->validated());
+
+        return redirect()->route('shipping-addresses.index')
+            ->with('success', 'Direccion de envio actualizada correctamente.');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
+    public function destroy(string $id): RedirectResponse
     {
-        //
+        $shippingAddress = ShippingAddress::findOrFail($id);
+        $shippingAddress->delete();
+
+        return redirect()->route('shipping-addresses.index')
+            ->with('success', 'Direccion de envio eliminada correctamente.');
     }
 }
