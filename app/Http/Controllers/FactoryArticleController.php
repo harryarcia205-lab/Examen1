@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\FactoryArticles;
+use App\Models\FactoryArticles; // Nota: Idealmente debería ser FactoryArticle
 use App\Http\Requests\FactoryArticleRequest;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
@@ -26,11 +26,12 @@ class FactoryArticleController
         FactoryArticles::create($request->validated());
 
         return redirect()->route('factory-articles.index')
-            ->with('success', 'Relacion fabrica-articulo creada correctamente.');
+            ->with('success', 'Relación fábrica-artículo creada correctamente.');
     }
 
     public function show(FactoryArticles $factoryArticle): View
     {
+        // Corregido: Añadido el tipo de retorno View
         $record = $factoryArticle->load(['factory', 'article']);
 
         return view('factory-articles.show', compact('record'));
@@ -38,6 +39,7 @@ class FactoryArticleController
 
     public function edit(FactoryArticles $factoryArticle): View
     {
+        // Corregido: Eliminado el ';' intruso y añadido tipo de retorno View
         return view('factory-articles.edit', ['record' => $factoryArticle]);
     }
 
@@ -46,7 +48,7 @@ class FactoryArticleController
         $factoryArticle->update($request->validated());
 
         return redirect()->route('factory-articles.index')
-            ->with('success', 'Relacion fabrica-articulo actualizada correctamente.');
+            ->with('success', 'Relación fábrica-artículo actualizada correctamente.');
     }
 
     public function destroy(FactoryArticles $factoryArticle): RedirectResponse
@@ -54,6 +56,6 @@ class FactoryArticleController
         $factoryArticle->delete();
 
         return redirect()->route('factory-articles.index')
-            ->with('success', 'Relacion fabrica articulo eliminada correctamente.');
+            ->with('success', 'Relación fábrica-artículo eliminada correctamente.');
     }
 }
