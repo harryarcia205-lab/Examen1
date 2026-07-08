@@ -2,79 +2,73 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\ClientRequest;
-use App\Models\Client;
-use Illuminate\Http\RedirectResponse;
-use Illuminate\View\View;
+use App\Http\Requests\CustomerRequest;
+use App\Models\Customer;
 
-class ClientController
+class CustomerController
 {
     /**
      * Display a listing of the resource.
      */
-    public function index(): View
+    public function index()
     {
-        // Tipificado corregido. Ordenar por id desc está bien, 
-        // pero "latest()" es un shorthand de Laravel más idiomático.
-        $clients = Client::latest()->paginate(20);
-        
-        return view('clients.index', compact('clients'));
+        $customers = Customer::orderByDesc('id')->get();
+        return view('customers.index', compact('customers'));
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create(): View
+    public function create()
     {
-        return view('clients.create');
+       $customer =new customer();
+        return view('customer.create', compact('customer'));
+
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(ClientRequest $request): RedirectResponse
+    public function store(CustomerRequest $request)
     {
-        Client::create($request->validated());
-        
-        return redirect()->route('clients.index')
-            ->with('success', 'El cliente se ha creado correctamente.');
+        Customer::create($request->validated());
+        return redirect()->route('customers.index')->with('success', 'El cliente se ha creado correctamente.');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Client $client): View
+    public function show(string $id)
     {
-        return view('clients.show', compact('client'));
+        $customer = Customer::findOrFail($id);
+        return view('customers.show', compact('customer'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Client $client): View
+    public function edit(string $id)
     {
-        return view('clients.edit', compact('client'));
+        $customer = Customer::findOrFail($id);
+        return view('customers.edit', compact('customer'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(ClientRequest $request, Client $client): RedirectResponse
+    public function update(CustomerRequest $request, Customer $customer)
     {
-        $client->update($request->validated());
-        
-        return redirect()->route('clients.index')
-            ->with('success', 'El cliente se ha actualizado correctamente.');
+        $customer->update($request->validated());
+        return redirect()->route('customers.index')->with('success', 'El cliente se ha actualizado correctamente.');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Client $client): RedirectResponse
+    public function destroy(string $id)
     {
-        $client->delete();
-        
-        return redirect()->route('clients.index')
-            ->with('success', 'El cliente se ha eliminado correctamente.');
+        $customer = Customer::findOrFail($id);
+        $customer->delete();
+        return redirect()->route('customers.index')->with('success', 'El cliente se ha eliminado correctamente.');
     }
 }

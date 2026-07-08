@@ -11,49 +11,53 @@ class OrderController
 {
     public function index(): View
     {
-        // Traemos solo lo necesario para la lista principal
-        $orders = Order::with(['customer', 'shippingAddress'])->get();
+        $orders = Order::with(['customer'])->get();
 
         return view('orders.index', compact('orders'));
     }
 
     public function create(): View
     {
-        return view('orders.create');
+        $order = new Order();
+        $customers = Customer::all();
+        return view('orders.create', compact('order', 'customers'));
     }
 
     public function store(OrderRequest $request): RedirectResponse
     {
         Order::create($request->validated());
 
-        return redirect()->route('orders.index')
-            ->with('success', 'Pedido creado correctamente.');
+        return redirect()->route('orders.index')->with('success', 'Pedido creado correctamente.');
     }
 
     public function show(Order $order): View
     {
-        // En lugar de findOrFail, cargamos las relaciones sobre el objeto que Laravel ya buscó
-        $order->load(['customer', 'shippingAddress', 'orderLines.article']);
+        $order = Order::with(['customer'])->findOrFail($order->id);
 
         return view('orders.show', compact('order'));
     }
 
-    public function edit(Order $order): View
+    public function edit(string $id): View
     {
-        // Route Model Binding aplicado: nos ahorramos el findOrFail
+        $order = Order::with('customer')->findOrFail($id);
+        $customers = Customer::all();
+
+
         return view('orders.edit', compact('order'));
     }
 
-    public function update(OrderRequest $request, Order $order): RedirectResponse
+    public function update(OrderRequest $request, string $id): RedirectResponse
     {
+        $order = Order::findOrFail($id);
         $order->update($request->validated());
 
         return redirect()->route('orders.index')
-            ->with('success', 'Pedido actualizado correctamente.');
+        ->with('success', 'Pedido actualizado correctamente.');
     }
 
-    public function destroy(Order $order): RedirectResponse
+    public function destroy(string $id): RedirectResponse
     {
+        $order = Order::findOrFail($id);
         $order->delete();
 
         return redirect()->route('orders.index')
