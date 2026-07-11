@@ -11,7 +11,7 @@ class ShippingAddressController
 {
     public function index(): View
     {
-        $shippingAddresses = ShippingAddress::with('customer')->get();
+        $shippingAddresses = ShippingAddress::with('client')->get();
 
         return view('shipping-addresses.index', compact('shippingAddresses'));
     }
@@ -31,7 +31,7 @@ class ShippingAddressController
 
     public function show(ShippingAddress $shippingAddress): View
     {
-        $shippingAddress = ShippingAddress::with('customer')->findOrFail($shippingAddress->id);
+        $shippingAddress = ShippingAddress::with('client')->findOrFail($shippingAddress->id);
 
         return view('shipping-addresses.show', compact('shippingAddress'));
     }

@@ -2,18 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\CustomerRequest;
-use App\Models\Customer;
+use App\Http\Requests\ClientRequest;
+use App\Models\Client;
 
-class CustomerController
+class ClientController
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $customers = Customer::orderByDesc('id')->get();
-        return view('customers.index', compact('customers'));
+        $clients = Client::orderByDesc('id')->get();
+        return view('clients.index', compact('clients'));
     }
 
     /**
@@ -21,18 +21,18 @@ class CustomerController
      */
     public function create()
     {
-       $customer =new customer();
-        return view('customer.create', compact('customer'));
+       $client =new Client();
+        return view('client.create', compact('client'));
 
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(CustomerRequest $request)
+    public function store(ClientRequest $request)
     {
-        Customer::create($request->validated());
-        return redirect()->route('customers.index')->with('success', 'El cliente se ha creado correctamente.');
+        Client::create($request->validated());
+        return redirect()->route('clients.index')->with('success', 'El cliente se ha creado correctamente.');
     }
 
     /**
@@ -40,8 +40,8 @@ class CustomerController
      */
     public function show(string $id)
     {
-        $customer = Customer::findOrFail($id);
-        return view('customers.show', compact('customer'));
+        $client = Client::findOrFail($id);
+        return view('clients.show', compact('client'));
     }
 
     /**
@@ -49,17 +49,17 @@ class CustomerController
      */
     public function edit(string $id)
     {
-        $customer = Customer::findOrFail($id);
-        return view('customers.edit', compact('customer'));
+        $client = Client::findOrFail($id);
+        return view('clients.edit', compact('client'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(CustomerRequest $request, Customer $customer)
+    public function update(ClientRequest $request, Client $client)
     {
-        $customer->update($request->validated());
-        return redirect()->route('customers.index')->with('success', 'El cliente se ha actualizado correctamente.');
+        $client->update($request->validated());
+        return redirect()->route('clients.index')->with('success', 'El cliente se ha actualizado correctamente.');
     }
 
     /**
@@ -67,8 +67,8 @@ class CustomerController
      */
     public function destroy(string $id)
     {
-        $customer = Customer::findOrFail($id);
-        $customer->delete();
-        return redirect()->route('customers.index')->with('success', 'El cliente se ha eliminado correctamente.');
+        $client = Client::findOrFail($id);
+        $client->delete();
+        return redirect()->route('clients.index')->with('success', 'El cliente se ha eliminado correctamente.');
     }
 }
