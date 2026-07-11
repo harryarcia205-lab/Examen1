@@ -86,7 +86,7 @@
 
                     <!-- Additional Notes -->
                     <div class="mb-6">
-                        <label for="additional_notes" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Additional Notes</label>
+                        <label for="additional_notes" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"> Notas adicionales</label>
                         <textarea id="additional_notes" name="additional_notes" rows="3" maxlength="255"
                                   class="w-full rounded-xl border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 
                                   focus:border-indigo-500 focus:ring focus:ring-indigo-500 focus:ring-opacity-20 shadow-sm transition-colors">{{ old('additional_notes') }}</textarea>
@@ -114,7 +114,7 @@
                         </a>
                         <button type="submit" 
                                 class="inline-flex items-center px-4 py-2 bg-indigo-600 border border-transparent rounded-xl font-semibold text-xs text-white uppercase tracking-widest hover:bg-indigo-700 focus:bg-indigo-700 active:bg-indigo-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800 transition ease-in-out duration-150 shadow-lg shadow-indigo-500/30">
-                            Save Order
+                            guardar order
                         </button>
                     </div>
                 </form>

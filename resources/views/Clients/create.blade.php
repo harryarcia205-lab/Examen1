@@ -20,7 +20,7 @@
 
                     <!-- Full Name -->
                     <div class="mb-6">
-                        <label for="full_name" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Full Name</label>
+                        <label for="full_name" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Nombre completo</label>
                         <input type="text" id="full_name" name="full_name" value="{{ old('full_name') }}" maxlength="255"
                                class="w-full rounded-xl border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 focus:ring focus:ring-indigo-500 focus:ring-opacity-20 shadow-sm transition-colors">
                         @error('full_name')
