@@ -20,19 +20,19 @@ Route::middleware(['auth', 'verified', 'prevent-back-history'])->group(function 
         return view('dashboard');
     })->name('dashboard');
 
-    Route::resource('client', ClientController::class);
+    Route::resource('clients', ClientsController::class);
 
     Route::resource('shippingAddress', ShippingAddressController::class);
 
-    Route::resource('order', OrderController);
+    Route::resource('orders', OrdersController::class);
 
-    Route::resource('orderlines', OrderLineController);
+    Route::resource('orderlines', OrderLineController::class);
 
-    Route::resource('article', ArticleController);
+    Route::resource('articles', ArticlesController::class);
 
-    Route::resource('factoryarticle', FactoryArticleController);
+    Route::resource('factoryarticle', FactoryArticleController::class);
 
-    Route::resource('factory', FactoryController);
+    Route::resource('factories', FactoriesController::class);
 
 Route::middleware('auth ')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
