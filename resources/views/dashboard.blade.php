@@ -39,7 +39,7 @@
                             </div>
                         </div>
                         <div class="flex items-center text-sm font-semibold text-indigo-600 dark:text-indigo-400">
-                            Administrar clientes 
+                            Administrar cliente
                             <svg class="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
                         </div>
                     </div>
@@ -47,7 +47,7 @@
 
                  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 
-                <a href="{{ route('ShippingAddress.index') }}" class="group block bg-white dark:bg-gray-800 overflow-hidden shadow-md sm:rounded-2xl border border-gray-100 dark:border-gray-700 hover:border-indigo-500/50 dark:hover:border-indigo-500/50 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                <a href="{{ route('shippingAddress.index') }}" class="group block bg-white dark:bg-gray-800 overflow-hidden shadow-md sm:rounded-2xl border border-gray-100 dark:border-gray-700 hover:border-indigo-500/50 dark:hover:border-indigo-500/50 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
                     <div class="p-8">
                         <div class="flex justify-between items-start mb-6">
                             <div>
@@ -65,9 +65,9 @@
                     </div>
                 </a>
 
-                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 
-                <a href="{{ route('order.index') }}" class="group block bg-white dark:bg-gray-800 overflow-hidden shadow-md sm:rounded-2xl border border-gray-100 dark:border-gray-700 hover:border-indigo-500/50 dark:hover:border-indigo-500/50 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                <a href="{{ route('orders.index') }}" class="group block bg-white dark:bg-gray-800 overflow-hidden shadow-md sm:rounded-2xl border border-gray-100 dark:border-gray-700 hover:border-indigo-500/50 dark:hover:border-indigo-500/50 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
                     <div class="p-8">
                         <div class="flex justify-between items-start mb-6">
                             <div>
@@ -85,13 +85,13 @@
                     </div>
                 </a>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 
-                <a href="{{ route('order line.index') }}" class="group block bg-white dark:bg-gray-800 overflow-hidden shadow-md sm:rounded-2xl border border-gray-100 dark:border-gray-700 hover:border-indigo-500/50 dark:hover:border-indigo-500/50 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                <a href="{{ route('orderlines.index') }}" class="group block bg-white dark:bg-gray-800 overflow-hidden shadow-md sm:rounded-2xl border border-gray-100 dark:border-gray-700 hover:border-indigo-500/50 dark:hover:border-indigo-500/50 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
                     <div class="p-8">
                         <div class="flex justify-between items-start mb-6">
                             <div>
-                                <h4 class="text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">Gestión de linea pedido</h4>
+                                <h4 class="text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">Gestión de Linea pedido</h4>
                                 <p class="text-sm text-gray-500 dark:text-gray-400">Organiza y clasifica toda la información del sistema en diferentes áreas o temáticas.</p>
                             </div>
                             <div class="p-3 bg-blue-50 dark:bg-blue-900/30 rounded-xl border border-blue-100 dark:border-blue-800/50 text-blue-600 dark:text-blue-400 group-hover:scale-110 transition-transform duration-300">
@@ -99,15 +99,15 @@
                             </div>
                         </div>
                         <div class="flex items-center text-sm font-semibold text-indigo-600 dark:text-indigo-400">
-                            Administrar linea pedido
+                            Administrar Linea pedido
                             <svg class="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
                         </div>
                     </div>
                 </a>
 
-                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 
-                <a href="{{ route('article.index') }}" class="group block bg-white dark:bg-gray-800 overflow-hidden shadow-md sm:rounded-2xl border border-gray-100 dark:border-gray-700 hover:border-indigo-500/50 dark:hover:border-indigo-500/50 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                <a href="{{ route('articles.index') }}" class="group block bg-white dark:bg-gray-800 overflow-hidden shadow-md sm:rounded-2xl border border-gray-100 dark:border-gray-700 hover:border-indigo-500/50 dark:hover:border-indigo-500/50 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
                     <div class="p-8">
                         <div class="flex justify-between items-start mb-6">
                             <div>
@@ -125,9 +125,9 @@
                     </div>
                 </a>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 
-                <a href="{{ route('factoryarticle.index') }}" class="group block bg-white dark:bg-gray-800 overflow-hidden shadow-md sm:rounded-2xl border border-gray-100 dark:border-gray-700 hover:border-indigo-500/50 dark:hover:border-indigo-500/50 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                <a href="{{ route('factoryarticles.index') }}" class="group block bg-white dark:bg-gray-800 overflow-hidden shadow-md sm:rounded-2xl border border-gray-100 dark:border-gray-700 hover:border-indigo-500/50 dark:hover:border-indigo-500/50 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
                     <div class="p-8">
                         <div class="flex justify-between items-start mb-6">
                             <div>
