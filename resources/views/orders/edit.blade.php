@@ -71,16 +71,16 @@
                     </div>
 
                     <div class="mb-6">
-                        <label for="customer_id" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Cliente</label>
-                        <select id="customer_id" name="customer_id" class="w-full rounded-xl border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring focus:ring-indigo-500 focus:ring-opacity-20 shadow-sm transition-colors">
+                        <label for="client_id" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Cliente</label>
+                        <select id="client_id" name="client_id" class="w-full rounded-xl border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring focus:ring-indigo-500 focus:ring-opacity-20 shadow-sm transition-colors">
                             <option value="">-- Seleccione un cliente --</option>
-                            @foreach($customers as $customer)
-                                <option value="{{ $customer->id }}" {{ old('customer_id', $order->customer_id) == $customer->id ? 'selected' : '' }}>
-                                    {{ $customer->name }}
+                            @foreach($clients as $client)
+                                <option value="{{ $client->id }}" {{ old('client_id', $order->client_id) == $client->id ? 'selected' : '' }}>
+                                    {{ $client->name }}
                                 </option>
                             @endforeach
                         </select>
-                        @error('customer_id')
+                        @error('client_id')
                             <p class="mt-2 text-sm text-red-600 dark:text-red-400">{{ $message }}</p>
                         @enderror
                     </div>

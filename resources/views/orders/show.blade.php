@@ -23,7 +23,7 @@
                 <div class="mb-6 border-t border-gray-100 dark:border-gray-700 pt-6">
                     <h3 class="text-sm font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-2">Cliente</h3>
                     <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-400">
-                        {{ $order->customer->name ?? 'Sin cliente' }}
+                        {{ $order->client->name ?? 'Sin cliente' }}
                     </span>
                 </div>
 
