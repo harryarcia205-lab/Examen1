@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string("neighborhood", 255);
             $table->string("city", 255);
             $table->string("reference_location", 25);
-            $table->string("state_address", 25);  
+            $table->string("state_address", 25);
             $table->timestamps();
         });
     }
