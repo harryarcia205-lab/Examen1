@@ -7,7 +7,7 @@ use App\Http\Requests\FactoryArticleRequest;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
 
-class FactoryArticleController
+class FactoryArticlesController
 {
     public function index(): View
     {
