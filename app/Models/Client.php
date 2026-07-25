@@ -18,14 +18,6 @@ class Client extends Model
         'client_status',
     ];
 
-   
-    protected $casts = [
-        'balance'           => 'decimal:2',
-        'credit_limit'      => 'decimal:2',
-        'discount'          => 'decimal:2',
-        'registration_date' => 'date',
-    ];
-
     
 
     public function orders(): HasMany

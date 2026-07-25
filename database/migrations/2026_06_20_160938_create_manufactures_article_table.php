@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('manufactures_article', function (Blueprint $table) {
             $table->increments("id");
             $table->integer("article_id")->unsigned();
-            $table->foreign("article_id")->on("id")->references("article")->onDelete("cascade")->onUpdate("cascade");
+            $table->foreign("article_id")->on("id")->references("articles")->onDelete("cascade")->onUpdate("cascade");
             $table->integer("current_stock");
             $table->decimal("supplier_negotiated_cost");
             $table->integer("estimated_delivery_time");

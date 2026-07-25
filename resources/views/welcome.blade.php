@@ -42,7 +42,7 @@
                 </div>
 
                 <h1 class="text-4xl sm:text-6xl font-bold tracking-tight text-gray-900 dark:text-white mb-6">
-                    Gestor de <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-purple-600">Notas</span>
+                    Gestor de <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-purple-600">Prueba</span>
                 </h1>
 
                 <p class="mt-4 text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-12">

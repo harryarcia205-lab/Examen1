@@ -27,7 +27,7 @@
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 
-                <a href="{{ route('client.index') }}" class="group block bg-white dark:bg-gray-800 overflow-hidden shadow-md sm:rounded-2xl border border-gray-100 dark:border-gray-700 hover:border-indigo-500/50 dark:hover:border-indigo-500/50 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                <a href="{{ route('clients.index') }}" class="group block bg-white dark:bg-gray-800 overflow-hidden shadow-md sm:rounded-2xl border border-gray-100 dark:border-gray-700 hover:border-indigo-500/50 dark:hover:border-indigo-500/50 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
                     <div class="p-8">
                         <div class="flex justify-between items-start mb-6">
                             <div>
@@ -45,7 +45,7 @@
                     </div>
                 </a>
 
-                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 
                 <a href="{{ route('shippingAddress.index') }}" class="group block bg-white dark:bg-gray-800 overflow-hidden shadow-md sm:rounded-2xl border border-gray-100 dark:border-gray-700 hover:border-indigo-500/50 dark:hover:border-indigo-500/50 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
                     <div class="p-8">
@@ -85,7 +85,7 @@
                     </div>
                 </a>
 
-                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 
                 <a href="{{ route('orderlines.index') }}" class="group block bg-white dark:bg-gray-800 overflow-hidden shadow-md sm:rounded-2xl border border-gray-100 dark:border-gray-700 hover:border-indigo-500/50 dark:hover:border-indigo-500/50 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
                     <div class="p-8">
@@ -125,7 +125,7 @@
                     </div>
                 </a>
 
-                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 
                 <a href="{{ route('factoryarticles.index') }}" class="group block bg-white dark:bg-gray-800 overflow-hidden shadow-md sm:rounded-2xl border border-gray-100 dark:border-gray-700 hover:border-indigo-500/50 dark:hover:border-indigo-500/50 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
                     <div class="p-8">
@@ -170,7 +170,7 @@
                     <div class="p-8">
                         <div class="flex justify-between items-start mb-6">
                             <div>
-                                <h4 class="text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">Control de Notas</h4>
+                                <h4 class="text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">Control de Prueba</h4>
                                 <p class="text-sm text-gray-500 dark:text-gray-400">Crea, visualiza y gestiona todos tus apuntes vinculados de forma estructurada.</p>
                             </div>
                             <div class="p-3 bg-emerald-50 dark:bg-emerald-900/30 rounded-xl border border-emerald-100 dark:border-emerald-800/50 text-emerald-600 dark:text-emerald-400 group-hover:scale-110 transition-transform duration-300">
@@ -178,7 +178,7 @@
                             </div>
                         </div>
                         <div class="flex items-center text-sm font-semibold text-emerald-600 dark:text-emerald-400">
-                            Revisar notas activas 
+                            Revisar notas activas
                             <svg class="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
                         </div>
                     </div>
