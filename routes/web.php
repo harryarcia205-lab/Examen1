@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\ShippingAddressController;
 use App\Http\Controllers\OrdersController;
+use App\Http\Controllers\OrderlinesController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -21,6 +22,11 @@ Route::middleware('auth')->group(function () {
     Route::resource('clients', ClientController::class);
     Route::resource('shippingAddress', ShippingAddressController::class);
     Route::resource('orders', OrderController::class);
+    Route::resource('orderlines', OrderlinesController::class);
+    {
+        
+    }
+    )
 });
 
 require __DIR__.'/auth.php';
