@@ -21,12 +21,12 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::resource('clients', ClientController::class);
     Route::resource('shippingAddress', ShippingAddressController::class);
-    Route::resource('orders', OrderController::class);
+    Route::resource('orders', OrdersController::class);
     Route::resource('orderlines', OrderlinesController::class);
     {
         
     }
-    )
+    
 });
 
 require __DIR__.'/auth.php';
