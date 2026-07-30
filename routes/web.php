@@ -6,6 +6,7 @@ use App\Http\Controllers\ShippingAddressController;
 use App\Http\Controllers\OrdersController;
 use App\Http\Controllers\OrderlinesController;
 use App\Http\Controllers\ArticlesController;
+use App\Http\Controllers\FactoryArticlesController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -25,6 +26,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('orders', OrdersController::class);
     Route::resource('orderlines', OrderlinesController::class);
     Route::resource('articles', ArticlesController::class);
+    Route::resource('factoryarticles', FactoryArticlesController::class);
     {
         
     }
