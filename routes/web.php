@@ -8,7 +8,7 @@ use App\Http\Controllers\OrderlinesController;
 use App\Http\Controllers\ArticlesController;
 use App\Http\Controllers\FactoryArticlesController;
 use App\Http\Controllers\FactoriesController;
-use App\Http\Controllers\NoteController;
+use App\Http\Controllers\NotesController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -30,7 +30,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('articles', ArticlesController::class);
     Route::resource('factoryarticles', FactoryArticlesController::class);
     Route::resource('factories', FactoriesController::class);
-    Route::resource('note',NoteController::class);
+    Route::resource('notes',NotesController::class);
     {
         
     }
