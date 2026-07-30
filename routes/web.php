@@ -5,6 +5,7 @@ use App\Http\Controllers\ClientController;
 use App\Http\Controllers\ShippingAddressController;
 use App\Http\Controllers\OrdersController;
 use App\Http\Controllers\OrderlinesController;
+use App\Http\Controllers\ArticlesController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -23,6 +24,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('shippingAddress', ShippingAddressController::class);
     Route::resource('orders', OrdersController::class);
     Route::resource('orderlines', OrderlinesController::class);
+    Route::resource('articles', ArticlesController::class);
     {
         
     }
