@@ -20,7 +20,7 @@ class OrderController
     public function create(): View
     {
         $order = new Order();
-        $customers = Client::all();
+        $clients = Client::all();
         return view('orders.create', compact('order', 'client'));
     }
 
