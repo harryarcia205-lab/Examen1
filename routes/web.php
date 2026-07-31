@@ -9,6 +9,7 @@ use App\Http\Controllers\ArticlesController;
 use App\Http\Controllers\FactoryArticlesController;
 use App\Http\Controllers\FactoriesController;
 use App\Http\Controllers\NotesController;
+use App\Http\Controllers\CategoriesController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -31,6 +32,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('factoryarticles', FactoryArticlesController::class);
     Route::resource('factories', FactoriesController::class);
     Route::resource('notes',NotesController::class);
+    Route::resource('categories',CategoriesController::class);
     {
         
     }
