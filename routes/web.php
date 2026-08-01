@@ -25,7 +25,7 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::resource('clients', ClientController::class);
-    Route::resource('shippingAddress', ShippingAddressesController::class);
+    Route::resource('shippingAddresses', ShippingAddressesController::class);
     Route::resource('orders', OrdersController::class);
     Route::resource('orderlines', OrderlinesController::class);
     Route::resource('articles', ArticlesController::class);
