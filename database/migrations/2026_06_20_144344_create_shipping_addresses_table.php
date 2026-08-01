@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('shipping_address', function (Blueprint $table) {
+        Schema::create('shipping_addresses', function (Blueprint $table) {
             $table->increments("id");
             $table->integer("client_id")->unsigned();
             $table->foreign("client_id")->on("id")->references("clients")->onDelete("cascade")->onUpdate("cascade");
