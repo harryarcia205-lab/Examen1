@@ -4,7 +4,7 @@
             <h2 class="font-semibold text-2xl text-gray-800 dark:text-gray-100 leading-tight tracking-tight">
                 {{ __('Crear Dirección de Envío') }}
             </h2>
-            <a href="{{ route('shipping_address.index') }}" class="text-sm text-gray-500 hover:text-indigo-600 dark:text-gray-400 dark:hover:text-indigo-400 transition-colors font-medium">
+            <a href="{{ route('shippingAddress.index') }}" class="text-sm text-gray-500 hover:text-indigo-600 dark:text-gray-400 dark:hover:text-indigo-400 transition-colors font-medium">
                 &larr; Volver a la lista
             </a>
         </div>
@@ -14,7 +14,7 @@
         <div class="max-w-2xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-xl sm:rounded-2xl border border-gray-100 dark:border-gray-700 p-8">
                 
-                <form action="{{ route('shipping_address.store') }}" method="POST" novalidate>
+                <form action="{{ route('shippingAddress.store') }}" method="POST" novalidate>
                     @csrf
                     
                     <div class="mb-6">
