@@ -18,7 +18,7 @@
                         {{ __('Cliente') }}
                     </x-nav-link>
 
-                    <x-nav-link :href="route('shippingAddresses.index')" :active="request()->routeIs('shippingAddress.*')">
+                    <x-nav-link :href="route('shippingAddress.index')" :active="request()->routeIs('shippingAddress.*')">
                         {{ __('Direccion Envio') }}
                     </x-nav-link>
 
@@ -45,7 +45,8 @@
                     <x-nav-link :href="route('notes.index')" :active="request()->routeIs('notes.*')">
                         {{ __('Notas') }}
                     </x-nav-link>
-                  
+
+                    
                     <x-nav-link :href="route('notes.index')" :active="request()->routeIs('notes.*')">
                         {{ __('Notas') }}
                     </x-nav-link>
