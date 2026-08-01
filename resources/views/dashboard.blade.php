@@ -47,7 +47,7 @@
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 
-                <a href="{{ route('shippingAddress.index') }}" class="group block bg-white dark:bg-gray-800 overflow-hidden shadow-md sm:rounded-2xl border border-gray-100 dark:border-gray-700 hover:border-indigo-500/50 dark:hover:border-indigo-500/50 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                <a href="{{ route('shippingAddresses.index') }}" class="group block bg-white dark:bg-gray-800 overflow-hidden shadow-md sm:rounded-2xl border border-gray-100 dark:border-gray-700 hover:border-indigo-500/50 dark:hover:border-indigo-500/50 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
                     <div class="p-8">
                         <div class="flex justify-between items-start mb-6">
                             <div>
