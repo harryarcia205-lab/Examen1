@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ClientController;
-use App\Http\Controllers\ShippingAddressController;
+use App\Http\Controllers\ShippingAddressesController;
 use App\Http\Controllers\OrdersController;
 use App\Http\Controllers\OrderlinesController;
 use App\Http\Controllers\ArticlesController;
@@ -25,7 +25,7 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::resource('clients', ClientController::class);
-    Route::resource('shippingAddress', ShippingAddressController::class);
+    Route::resource('shippingAddress', ShippingAddressesController::class);
     Route::resource('orders', OrdersController::class);
     Route::resource('orderlines', OrderlinesController::class);
     Route::resource('articles', ArticlesController::class);
