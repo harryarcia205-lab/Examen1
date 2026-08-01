@@ -11,36 +11,36 @@ class ShippingAddressController
 {
     public function index(): View
     {
-        $shippingAddresses = ShippingAddress::with('client')->get();
+        $shippingAddress = ShippingAddress::with('client')->get();
 
-        return view('shipping-address.index', compact('shippingAddress'));
+        return view('shippingAddress.index', compact('shippingAddress'));
     }
 
     public function create(): View
     {
-        return view('shipping-address.create');
+        return view('shippingAddress.create');
     }
 
     public function store(ShippingAddressRequest $request): RedirectResponse
     {
         ShippingAddress::create($request->validated());
 
-        return redirect()->route('shipping-address.index')
+        return redirect()->route('shippingAddress.index')
             ->with('success', 'Direccion de envio creada correctamente.');
     }
 
     public function show(ShippingAddress $shippingAddress): View
     {
-        $shippingAddresses = ShippingAddress::with('client')->findOrFail($shippingAddress->id);
+        $shippingAddress = ShippingAddress::with('client')->findOrFail($shippingAddress->id);
 
-        return view('shipping-address.show', compact('shippingAddress'));
+        return view('shippingAddress.show', compact('shippingAddress'));
     }
 
     public function edit(string $id): View
     {
         $shippingAddress = ShippingAddress::findOrFail($id);
 
-        return view('shipping-address.edit', compact('shippingAddress'));
+        return view('shippingAddress.edit', compact('shippingAddress'));
     }
 
     public function update(ShippingAddressRequest $request, string $id): RedirectResponse
@@ -48,7 +48,7 @@ class ShippingAddressController
         $shippingAddress = ShippingAddress::findOrFail($id);
         $shippingAddress->update($request->validated());
 
-        return redirect()->route('shipping-address.index')
+        return redirect()->route('shippingAddress.index')
             ->with('success', 'Direccion de envio actualizada correctamente.');
     }
 
@@ -57,7 +57,7 @@ class ShippingAddressController
         $shippingAddress = ShippingAddress::findOrFail($id);
         $shippingAddress->delete();
 
-        return redirect()->route('shipping-address.index')
+        return redirect()->route('shippingAddress.index')
             ->with('success', 'Direccion de envio eliminada correctamente.');
     }
 }
