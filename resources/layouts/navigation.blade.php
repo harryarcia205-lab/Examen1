@@ -18,7 +18,7 @@
                         {{ __('Cliente') }}
                      </x-nav-link>
 
-                    <x-nav-link :href="route('shippingAddresses.index')" :active="request()->routeIs('shippingAddresses.*')">
+                    <x-nav-link :href="route('shippingAddress.index')" :active="request()->routeIs('shippingAddress.*')">
                         {{ __('Direccion Envio') }}
                     </x-nav-link>
 
