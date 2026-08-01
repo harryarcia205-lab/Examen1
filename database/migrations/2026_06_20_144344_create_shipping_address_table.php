@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('shipping_address', function (Blueprint $table) {
             $table->increments("id");
-            $table->integer("client_id")->unsigned();
-            $table->foreign("client_id")->on("id")->references("clients")->onDelete("cascade")->onUpdate("cascade");
+            $table->foreignId('city_id')->constrained('cities')->onDelete('cascade');
+            $table->string('client', 100);
             $table->integer("number")->unique();
             $table->string("street", 255);
             $table->string("neighborhood", 255);
