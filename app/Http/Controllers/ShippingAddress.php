@@ -7,7 +7,7 @@ use App\Http\Requests\ShippingAddressRequest;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
 
-class ShippingAddressController
+class ShippingAddressController extends Controller
 {
     public function index(): View
     {
