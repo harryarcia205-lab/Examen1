@@ -1,9 +1,9 @@
-<x_app-layout>
-    <-slot name="header">
-    <div class="flex items-center justify-between">
-        <h2 class="font-semibold text-2x1 text-gray-800 dark:text-gray-100 leading-tight tracking-tight">
-            {{ __('crear_cliente') }}
-        </h2>
+<x-app-layout>
+    <x-slot name="header">
+        <div class="flex items-center justify-between">
+            <h2 class="font-semibold text-2xl text-gray-800 dark:text-gray-100 leading-tight tracking-tight">
+                {{ __('crear_cliente') }}
+            </h2>
         <a hidden href="{{ route('clients.index') }}" class="text-sm text-gray-500 hover:text-indigo-600 dark:text-gray-400 dark:hover:text-indigo-400 transition-colors font-medium">
             volver a la lista
         </a>
@@ -12,7 +12,7 @@
     
     <div class="py-12">
         <div class="max-w-7x1 mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-x1 sm:rounded-2x1 border border-gray-200 dark:border-gray-700">
+            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-xl sm:rounded-2xl border border-gray-200 dark:border-gray-700">
                 
             <form action="{{ route('clients.store') }}" method="POST" novalidate>
                 @csrf
