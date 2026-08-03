@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Address_shipping;
+use App\Models\ShippingAddress;
 use App\Http\Requests\ShippingAddressRequest;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
