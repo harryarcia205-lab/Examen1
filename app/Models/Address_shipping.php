@@ -4,12 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Address_shipping extends Model
+class ShippingAddress extends Model
 {
     protected $table = 'shipping_addresses';
 
     protected $fillable = [
-        "customer_id",
+        "client_id",
         "order_line_id",
         "number",
         "street",
@@ -19,13 +19,13 @@ class Address_shipping extends Model
         "state_address",
     ];
 
-    public function customer()
+    public function client()
     {
-        return $this->belongsTo(Customer::class);
+        return $this->belongsTo(Client::class);
     }
 
     public function order_line()
     {
-        return $this->belongsTo(Order_line::class);
+        return $this->belongsTo(Orderline::class);
     }
 }
