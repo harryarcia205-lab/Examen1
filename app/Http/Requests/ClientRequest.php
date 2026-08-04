@@ -25,7 +25,7 @@ class ClientRequest extends FormRequest
         return [
             'name' => 'string|required|min:3|max:50',
             'email' => 'string|required|email|max:100',
-            'phone_number' => 'string|nullable|min:8|max:20',
+            'telephone' => 'string|nullable|min:8|max:20',
             'balance' => 'numeric|required|min:0',
             'credit_limit' => 'numeric|required|min:0',
             'discount' => 'numeric|nullable|min:0|max:100',
@@ -47,10 +47,10 @@ class ClientRequest extends FormRequest
             'email.email' => 'Debe ingresar un correo valido',
             'email.max' => 'El maximo de caracteres es 100',
 
-            'phone_number.string' => 'El numero de telefono solo permite caracteres',
-            'phone_number.required' => 'El numero de telefono es requerido',
-            'phone_number.min' => 'El minimo de caracteres es 8',
-            'phone_number.max' => 'El maximo de caracteres es 20',
+            'telephone.string' => 'El numero de telefono solo permite caracteres',
+            'telephone.required' => 'El numero de telefono es requerido',
+            'telephone.min' => 'El minimo de caracteres es 8',
+            'telephone.max' => 'El maximo de caracteres es 20',
 
             'balance.numeric' => 'El balance debe ser un numero',
             'balance.required' => 'El balance es requerido',
