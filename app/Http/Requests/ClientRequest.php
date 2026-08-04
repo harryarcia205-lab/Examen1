@@ -25,12 +25,12 @@ class ClientRequest extends FormRequest
         return [
             'name' => 'string|required|min:3|max:50',
             'email' => 'string|required|email|max:100',
-            'phone_number' => 'string|required|min:8|max:20',
+            'phone_number' => 'string|nullable|min:8|max:20',
             'balance' => 'numeric|required|min:0',
             'credit_limit' => 'numeric|required|min:0',
             'discount' => 'numeric|nullable|min:0|max:100',
-            'registration_date' => 'date|required',
-            'client_status' => 'string|required|min:3|max:20',
+            'registration_date' => 'date|nullable',
+            'client_status' => 'string|nullable|min:3|max:20',
         ];
     }
 
