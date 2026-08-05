@@ -10,14 +10,17 @@ return new class extends Migration
      * Run the migrations.
      */
     public function up(): void
-    {
-        Schema::create('manufactures_article', function (Blueprint $table) {
+    {   
+        Schema::create('factory_articles', function (Blueprint $table) {
             $table->increments("id");
+            $table->integer("current_stock")->unsigned();
+            $table->integer("negotiation_cost")->unsigned();
+            $table->date("date_estimated");
+
             $table->integer("article_id")->unsigned();
-            $table->foreign("article_id")->on("id")->references("articles")->onDelete("cascade")->onUpdate("cascade");
-            $table->integer("current_stock");
-            $table->decimal("supplier_negotiated_cost");
-            $table->integer("estimated_delivery_time");
+            $table->foreign("article_id")->references("id")->on("articles")->onDelete("cascade")->onUpdate("cascade");
+
+
             $table->timestamps();
         });
     }
@@ -27,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('manufactures_article');
+        Schema::dropIfExists('factory_articles');
     }
 };
