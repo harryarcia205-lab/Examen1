@@ -11,14 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('factory', function (Blueprint $table) {
+        Schema::create('factories', function (Blueprint $table) {
             $table->increments("id");
-            $table->string("company_name", 150);
-            $table->string("identification_number", 150)->unique();
-            $table->string("telephone", 20)->unique();
-            $table->string("email", 25)->unique();
-            $table->string("physical_address");
-            $table->string("supplier_status");
+            $table->string("company_name", 50);
+            $table->string("identification_card")->unique();
+            $table->integer("telephone")->unique();
+            $table->string("email")->unique();
+            $table->string("address", 30);
+            $table->string("state_supplier", 30);
+
             $table->timestamps();
         });
     }
@@ -28,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('factory');
+        Schema::dropIfExists('factories');
     }
 };
