@@ -11,13 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('orders_line', function (Blueprint $table) {
+        Schema::create('order_lines', function (Blueprint $table) {
             $table->increments("id");
+            $table->integer("quantity")->unsigned();
+            $table->decimal("price", 10, 2);
+            $table->decimal("subtotal_line", 10, 2);
+
             $table->integer("article_id")->unsigned();
-            $table->foreign("article_id")->on("id")->references("articles")->onDelete("cascade")->onUpdate("cascade");
-            $table->integer("requested_quiantity");
-            $table->decimal("unit_price", 12,2);
-            $table->decimal("line_subtotal", 12,2);
+            $table->foreign("article_id")->references("id")->on("articles")->onDelete("cascade")->onUpdate("cascade");
+
+
             $table->timestamps();
         });
     }
@@ -27,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('orders_line');
+        Schema::dropIfExists('order_lines');
     }
 };
