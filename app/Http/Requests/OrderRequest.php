@@ -12,7 +12,7 @@ class OrderRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -23,54 +23,46 @@ class OrderRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'client_id' => 'integer|required|exists:clients,id',
-            'address_id' => 'integer|required|exists:address,id',
-            'date_time_creation' => 'date|required',
-            'subtotal' => 'numeric|required|min:0',
-            'tax_amount' => 'numeric|required|min:0',
-            'grand_total' => 'numeric|required|min:0',
-            'additional_notes' => 'string|nullable|max:250',
-            'order_status' => 'string|required|min:3|max:20'
+            'customer_id'=>"required",
+            'address_shipping_id'=>"required",
+            'date_create'=>"date|required",
+            'subtotal'=>"required",
+            'iva'=>"required",
+            'total_general'=>"required",
+            'additional_notes'=>"string|required|min:3|max:20",
+            'state_order'=>"string|required||min:3|max:20",
         ];
     }
 
-    public function messages(): array
+    public function messages():array
     {
-        return [
-            'client_id.integer' => 'El cliente debe ser un numero',
-            'client_id.required' => 'El cliente debe ser requerido',
-            'client_id.exists' => 'El cliente seleccionado no existe',
+        return[
+            'customer_id.required'=>'El campo  de cliente es requerido',
+            
+            'address_shipping_id.required'=>'El campo de direcciones es requerido',
 
-            'address_id.integer' => 'La direccion debe ser un numero',
-            'address_id.required' => 'La direccion debe ser requerida',
-            'address_id.exists' => 'La direccion seleccionada no existe',
-
-            'date_time_creation.required' => 'La fecha de creacion es requerida',
-            'date_time_creation.date' => 'Debe ingresar una fecha valida',
-    
-            'subtotal.numeric' => 'El subtotal debe ser un numero',
-            'subtotal.required' => 'El subtotal debe ser requerido',
-            'subtotal.min' => 'El minimo de caracteres es 0',
-
-            'tax_amount.numeric' => 'El impuesto debe ser un numero',
-            'tax_amount.required' => 'El impuesto debe ser requerido',
-            'tax_amount.min' => 'El minimo de caracteres es 0',
-
-            'grand_total.numeric' => 'El total deber ser un numero',
-            'grand_total.required' => 'El total es requerido',
-            'grand_total.min' => 'El minimo de caracteres es 0',
-
-            'additional_notes.string' => 'Las notas solo permite caracteres',
-            'additional_notes.max' => 'El maximo de caracteres es 250',
-
-            'order_status.string' => 'El estado de la orden solo permite caracteres',
-            'order_status.required'=> 'El estado de la orden es requerido',
-            'order_status.min' => 'El minimo de caracteres es 3',
-            'order_status.max' => ' El maximo de caracteres es 20',
-
-        ];
-
+            'date_create.date'=>'El campo solo permite fecha de creacion',
+            'date_create.required'=>'El campo de fecha es requerido',
+            
+            
+            'subtotal.required'=>'El campo de subtotal es requerido',
 
             
+            'iva.required'=>'El campo de iva es requerido',
+
+
+            'total_general.required'=>'El campo de total general es requerido',
+
+            'additional_notes.string'=>'las notas adicionales solo permite caracteres',
+            'additional_notes.required'=>'El campo de notas adicionales es requerido',
+            'additional_notes.min'=>'El minimo de caracteres es 3',
+            'additional_notes.max'=>'El maximo de caracteres es 20',
+
+            'state_order.string'=>'el estado del pedido solo permite caracteres',
+            'state_order.required'=>'El campo de estado del pedido es requerido',
+            'state_order.min'=>'El minimo de caracteres es 3',
+            'state_order.max'=>'El maximo de caracteres es 20',
+
+        ];
     }
 }
