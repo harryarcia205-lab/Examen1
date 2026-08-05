@@ -3,28 +3,25 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Article extends Model
 {
     protected $fillable=[
-        'internal_code',
-        'detailed_description',
-        'current_selling_price',
-        'average_purchase_cost',
-        'availability_status',
-        'entry_date'
-        ];
+        "code_internal",
+        "description",
+        "price",
+        "cost",
+        "state",
+        "date_record"
+    ];
 
-        public function articleFactories(): HasMany
+    public function order_lines()
     {
-        return $this->hasMany(related: FactoryArticle::class);
-
+        return $this->hasMany(Order_line::class);
     }
 
-        public function orderLines(): HasMany 
-
-{
-        return $this->hasMany(related: OrderLine::class);
-}
+    public function factory_articles()
+    {
+        return $this->hasMany(Factory_article::class);
+    }
 }
