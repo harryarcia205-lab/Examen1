@@ -2,59 +2,73 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
 use App\Models\Factory;
 use App\Http\Requests\FactoryRequest;
-use Illuminate\Http\RedirectResponse;
-use Illuminate\View\View;
 
-class FactoryController
+class FactoryController extends Controller
 {
-    public function index(): View
+    /**
+     * Display a listing of the resource.
+     */
+    public function index()
     {
-        $factories = Factory::orderByDesc ('id')->get();
-
-        return view('factories.index', compact('factories'));
+        $factories = Factory::orderByDesc("id")->get();
+        return view("factories.index", compact("factories"));
     }
 
-    public function create(): View
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function create()
     {
-        $factories = Factory::orderByDesc ('id')->get();
-        return view('factories.create');
+        $factories = new Factory();
+        return view("factories.create", compact("factories"));
     }
 
-    public function store(FactoryRequest $request): RedirectResponse
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function store(FactoryRequest $request)
     {
         Factory::create($request->validated());
-
-        return redirect()->route('factories.index')->with('success', 'Fabrica creada correctamente.');
+        return redirect()->route("factories.index")->with("success", "La fábrica se ha creado correctamente.");
     }
 
-    public function show(Factory $factory): View
+    /**
+     * Display the specified resource.
+     */
+    public function show(string $id)
     {
         $factory = Factory::findOrFail($id);
-
-        return view('factories.show', compact('factory'));
+        return view("factories.show", compact("factory"));
     }
 
-    public function edit(string $id): View
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(string $id)
     {
         $factory = Factory::findOrFail($id);
-        return view('factories.edit', compact('factory'));
+        return view("factories.edit", compact("factory"));
     }
 
+    /**
+     * Update the specified resource in storage.
+     */
     public function update(FactoryRequest $request, Factory $factory)
     {
         $factory->update($request->validated());
-
-        return redirect()->route('factories.index') ->with('success', 'Fabrica creada correctamente.');
+        return redirect()->route("factories.index")->with("success", "La fábrica se ha actualizado correctamente.");
     }
 
-    public function destroy(string $id): RedirectResponse
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(string $id)
     {
         $factory = Factory::findOrFail($id);
         $factory->delete();
-
-        return redirect()->route('factories.index')
-            ->with('success', 'Fabrica eliminada correctamente.');
+        return redirect()->route("factories.index")->with("success", "La fábrica se ha eliminado correctamente.");
     }
 }
