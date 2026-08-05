@@ -13,16 +13,20 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->increments("id");
-            $table->integer("client_id")->unsigned();
-            $table->foreign("client_id")->on("id")->references("clients")->onDelete("cascade")->onUpdate("cascade");
-            $table->integer("id_address")->unsigned();
-            $table->foreign("id_address")->on("id")->references("address")->onDelete("cascade")->onUpdate("cascade");
-            $table->datetime("date_time_creation");
-            $table->decimal("subtotal", 12,2);
-            $table->decimal("tax_amount", 12,2);
-            $table->decimal("grand_total", 12,2);
-            $table->string("additional_notes", 25);
-            $table->string("order_status", 20);
+            $table->timestamp("date_create");
+            $table->decimal("subtotal", 10, 2);
+            $table->decimal("iva", 10, 2);
+            $table->decimal("total_general", 10, 2);
+            $table->string("additional_notes", 30);
+            $table->string("state_order", 20);
+
+            $table->integer("customer_id")->unsigned();
+            $table->foreign("customer_id")->references("id")->on("customers")->onDelete("cascade")->onUpdate("cascade");
+
+            $table->integer("address_shipping_id")->unsigned();
+            $table->foreign("address_shipping_id")->references("id")->on("address_shippings")->onDelete("cascade")->onUpdate("cascade");
+
+
             $table->timestamps();
         });
     }
