@@ -1,42 +1,41 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\ClientController;
-use App\Http\Controllers\ShippingAddressController;
-use App\Http\Controllers\OrdersController;
-use App\Http\Controllers\OrderlinesController;
-use App\Http\Controllers\ArticlesController;
-use App\Http\Controllers\FactoryArticlesController;
-use App\Http\Controllers\FactoriesController;
-use App\Http\Controllers\NotesController;
-use App\Http\Controllers\CategoriesController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\FactoryController;
+use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\Address_shippingController;
+use App\Http\Controllers\OrderController;
+use App\Http\Controllers\Order_lineController;
+use App\Http\Controllers\Factory_articleController;
+
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::middleware(['auth', 'verified', 'prevent-back-history'])->group(function() {
+    
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+});
+
+Route::resource('customers', CustomerController::class);
+Route::resource('factories', FactoryController::class);
+Route::resource('articles', ArticleController::class);
+Route::resource('address_shippings', Address_shippingController::class);
+Route::resource('orders', OrderController::class);
+Route::resource('order_lines', Order_lineController::class);
+Route::resource('factory_articles', Factory_articleController::class);
+
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-    Route::resource('clients', ClientController::class);
-    Route::resource('shippingAddress', ShippingAddressController::class);
-    Route::resource('orders', OrdersController::class);
-    Route::resource('orderlines', OrderlinesController::class);
-    Route::resource('articles', ArticlesController::class);
-    Route::resource('factoryarticles', FactoryArticlesController::class);
-    Route::resource('factories', FactoriesController::class);
-    Route::resource('notes',NotesController::class);
-    Route::resource('categories',CategoriesController::class);
-    {
-        
-    }
-    
 });
 
 require __DIR__.'/auth.php';
