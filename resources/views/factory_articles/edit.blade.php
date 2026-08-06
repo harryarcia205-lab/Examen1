@@ -91,7 +91,7 @@
                 }
             }).then((result) => {
                 if (result.isConfirmed) {
-                    document.getElementById('form-edit-' + id).submit(); 
+                    document.getElementById('form-edit-' + id).submit();
                 }
             })
         }
