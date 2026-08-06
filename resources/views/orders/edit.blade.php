@@ -2,7 +2,7 @@
     <x-slot name="header">
         <div class="flex items-center justify-between">
             <h2 class="font-semibold text-2xl text-gray-800 dark:text-gray-100 leading-tight tracking-tight">
-                {{ __('Editar Pedido') }}
+                {{ __('Editar Orden') }}
             </h2>
             <a href="{{ route('orders.index') }}" class="text-sm text-gray-500 hover:text-indigo-600 dark:text-gray-400 dark:hover:text-indigo-400 transition-colors font-medium">
                 &larr; Volver a la lista
@@ -35,9 +35,9 @@
                     </div>
 
                     <div class="mb-6">
-                        <label for="Iva" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Iva</label>
-                        <input type="number" id="Iva" name="Iva" value="{{ old('Iva', $order->Iva) }}" step="0.01" class="w-full rounded-xl border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring focus:ring-indigo-500 focus:ring-opacity-20 shadow-sm transition-colors">
-                        @error('Iva')
+                        <label for="iva" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Iva</label>
+                        <input type="number" id="iva" name="iva" value="{{ old('iva', $order->iva) }}" step="0.01" class="w-full rounded-xl border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring focus:ring-indigo-500 focus:ring-opacity-20 shadow-sm transition-colors">
+                        @error('iva')
                             <p class="mt-2 text-sm text-red-600 dark:text-red-400">{{ $message }}</p>
                         @enderror
                     </div>
@@ -71,16 +71,16 @@
                     </div>
 
                     <div class="mb-6">
-                        <label for="client_id" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Cliente</label>
-                        <select id="client_id" name="client_id" class="w-full rounded-xl border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring focus:ring-indigo-500 focus:ring-opacity-20 shadow-sm transition-colors">
+                        <label for="customer_id" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Cliente</label>
+                        <select id="customer_id" name="customer_id" class="w-full rounded-xl border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring focus:ring-indigo-500 focus:ring-opacity-20 shadow-sm transition-colors">
                             <option value="">-- Seleccione un cliente --</option>
-                            @foreach($clients as $client)
-                                <option value="{{ $client->id }}" {{ old('client_id', $order->client_id) == $client->id ? 'selected' : '' }}>
-                                    {{ $client->name }}
+                            @foreach($customers as $customer)
+                                <option value="{{ $customer->id }}" {{ old('customer_id', $order->customer_id) == $customer->id ? 'selected' : '' }}>
+                                    {{ $customer->name }}
                                 </option>
                             @endforeach
                         </select>
-                        @error('client_id')
+                        @error('customer_id')
                             <p class="mt-2 text-sm text-red-600 dark:text-red-400">{{ $message }}</p>
                         @enderror
                     </div>
@@ -97,8 +97,6 @@
                         </select>
                         @error('address_shipping_id')
                             <p class="mt-2 text-sm text-red-600 dark:text-red-400">{{ $message }}</p>
-                        @enderror
-                    </div>
                         @enderror
                     </div>
 
