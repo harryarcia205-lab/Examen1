@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>p
+    <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         
-        <title>{{ config('app.name', 'Laravel') }}</title>
+        <title>{{ config('app.name', 'Gestion de Fabricas') }}</title>
 
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=inter:400,500,600,700&display=swap" rel="stylesheet" />
@@ -42,11 +42,11 @@
                 </div>
 
                 <h1 class="text-4xl sm:text-6xl font-bold tracking-tight text-gray-900 dark:text-white mb-6">
-                    Gestor de <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-purple-600">Prueba</span>
+                    Gestor de Fabrica <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-purple-600">Notas</span>
                 </h1>
 
                 <p class="mt-4 text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-12">
-                    Sistema centralizado para la administración de categorías y apuntes de manera eficiente, estructurado bajo una interfaz moderna y adaptativa.
+                    Sistema centralizado para la administración y gestion de Fabricas de manera eficiente, estructurado bajo una interfaz moderna y adaptativa.
                 </p>
 
                 @if (Route::has('login'))
