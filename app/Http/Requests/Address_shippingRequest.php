@@ -24,7 +24,7 @@ class Address_shippingRequest extends FormRequest
     {
         return [
             'customer_id'=>"required",
-            'order_line_id'=>"required",
+            'order_line_id'=>"required|exists:order_lines,id",
             'number'=>"required",
             'street'=>"string|required|min:3|max:20",
             'neighborhood'=>"string|required|min:3|max:20",
@@ -39,17 +39,15 @@ class Address_shippingRequest extends FormRequest
     {
         return[
             
-            'customer_id' => 'required|exists:customers,id',
-            'order_line_id' => 'required|exists:order_lines,id',
-            'number' => 'required|string|max:255',
-            'street' => 'required|string|max:255',
-
-            'number.required'=>'El campo es requerido',
-
-            'street.string'=>'El nombre de la calle solo permite caracteres',
-            'street.required'=>'El campo es requerido',
-            'street.min'=>'El minimo de caractesres es 3',
-            'street.max'=>'El maximo de caracteres es 20',
+            'customer_id.required' => 'El campo es requerido',
+            'customer_id.exists' => 'El cliente no existe',
+            'order_line_id.required' => 'El campo es requerido',
+            'order_line_id.exists' => 'La línea de pedido no existe',
+            'number.required' => 'El campo es requerido',
+            'street.required' => 'El campo es requerido',
+            'street.string' => 'El nombre de la calle solo permite caracteres',
+            'street.min' => 'El minimo de caractesres es 3',
+            'street.max' => 'El maximo de caracteres es 20',
 
             'neighborhood.string'=>'El nombre del barrio solo permite caracteres',
             'neighborhood.required'=>'El campo es requerido',
