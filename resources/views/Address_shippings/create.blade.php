@@ -79,19 +79,7 @@
                             <p class="mt-2 text-sm text-red-600 dark:text-red-400">{{ $message }}</p>
                         @enderror
                     </div>
-
-                    <div class="mb-6">
-    <label for="order_line_id" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Línea de Pedido</label>
-    <select id="order_line_id" name="order_line_id" class="w-full rounded-xl border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
-        <option value="">Selecciona una línea de pedido...</option>
-        @foreach($order_lines as $order_line)
-            <option value="{{ $order_line->id }}">Línea ID: {{ $order_line->id }}</option>
-        @endforeach
-    </select>
-    @error('order_line_id')
-        <p class="mt-2 text-sm text-red-600 dark:text-red-400">{{ $message }}</p>
-    @enderror
-</div>
+ 
 
                     <div class="flex items-center justify-end gap-4 mt-8 pt-6 border-t border-gray-100 dark:border-gray-700">
                         <a href="{{ route('address_shippings.index') }}" class="inline-flex items-center px-4 py-2 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-xl font-semibold text-xs text-gray-700 dark:text-gray-300 uppercase tracking-widest shadow-sm hover:bg-gray-50 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800 disabled:opacity-25 transition ease-in-out duration-150">
