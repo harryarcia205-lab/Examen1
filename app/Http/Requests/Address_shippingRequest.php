@@ -24,12 +24,13 @@ class Address_shippingRequest extends FormRequest
     {
         return [
             'customer_id'=>"required",
+            'order_line_id'=>"required",
             'number'=>"required",
-            'street'=>"string|required||min:3|max:20",
-            'neighborhood'=>"string|required||min:3|max:20",
-            'city'=>"string|required||min:3|max:20",
-            'reference_location'=>"string|required||min:3|max:30",
-            'state_address'=>"string|required||min:3|max:20",
+            'street'=>"string|required|min:3|max:20",
+            'neighborhood'=>"string|required|min:3|max:20",
+            'city'=>"string|required|min:3|max:20",
+            'reference_location'=>"string|required|min:3|max:30",
+            'state_address'=>"string|required|min:3|max:20",
 
         ];
     }
@@ -39,6 +40,7 @@ class Address_shippingRequest extends FormRequest
         return[
             
             'customer_id' => 'required|exists:customers,id',
+            'order_line_id' => 'required|exists:order_lines,id',
             'number' => 'required|string|max:255',
             'street' => 'required|string|max:255',
 
