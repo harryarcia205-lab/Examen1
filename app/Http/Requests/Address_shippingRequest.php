@@ -39,33 +39,33 @@ class Address_shippingRequest extends FormRequest
     {
         return[
             
-            'customer_id.required' => 'El campo es requerido',
+            'customer_id.required' => 'El cliente es requerido',
             'customer_id.exists' => 'El cliente no existe',
-            'order_line_id.required' => 'El campo es requerido',
+            'order_line_id.required' => 'El id de linea de pedido es requerido',
             'order_line_id.exists' => 'La línea de pedido no existe',
-            'number.required' => 'El campo es requerido',
-            'street.required' => 'El campo es requerido',
+            'number.required' => 'El numero es requerido',
+            'street.required' => 'La calle es requerida',
             'street.string' => 'El nombre de la calle solo permite caracteres',
             'street.min' => 'El minimo de caractesres es 3',
             'street.max' => 'El maximo de caracteres es 20',
 
             'neighborhood.string'=>'El nombre del barrio solo permite caracteres',
-            'neighborhood.required'=>'El campo es requerido',
+            'neighborhood.required'=>'El Barrio es requerido',
             'neighborhood.min'=>'El minimo de caractesres es 3',
             'neighborhood.max'=>'El maximo de caracteres es 20',
 
             'city.string'=>'El nombre de la ciudad solo permite caracteres',
-            'city.required'=>'El campo es requerido',
+            'city.required'=>'La ciudad es requerida',
             'city.min'=>'El minimo de caractesres es 3',
             'city.max'=>'El maximo de caracteres es 20',
 
             'reference_location.string'=>'La refencia de ubicacion solo permite caracteres',
-            'reference_location.required'=>'El campo es requerido',
-            'reference_location.min'=>'El minimo de caractesres es 3',
+            'reference_location.required'=>'La referencia de ubicacion es requerida',
+            'reference_location.min'=>'El minimo de caracteres es 3',
             'reference_location.max'=>'El maximo de caracteres es 30',
 
             'state_address.string'=>'El estado de la direccion solo permite caracteres',
-            'state_address.required'=>'El campo es requerido',
+            'state_address.required'=>'El estado de la direccion es requerido',
             'state_address.min'=>'El minimo de caractesres es 3',
             'state_address.max'=>'El maximo de caracteres es 20',
 
