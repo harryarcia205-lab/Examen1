@@ -41,7 +41,7 @@ class Address_shippingRequest extends FormRequest
             
             'customer_id.required' => 'El cliente es requerido',
             'customer_id.exists' => 'El cliente no existe',
-            'order_line_id.required' => 'El linea de pedido es requerido',
+            'order_line_id.required' => 'La linea de pedido es requerida',
             'order_line_id.exists' => 'La línea de pedido no existe',
             'number.required' => 'El numero es requerido',
             'street.required' => 'La calle es requerida',
