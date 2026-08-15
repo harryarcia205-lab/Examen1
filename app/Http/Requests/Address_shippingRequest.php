@@ -24,7 +24,7 @@ class Address_shippingRequest extends FormRequest
     {
         return [
             'customer_id'=>"required",
-            'order_line_id'=>"required|exists:order_lines,id",
+            'order_line_id'=>"required",
             'number'=>"required",
             'street'=>"string|required|min:3|max:20",
             'neighborhood'=>"string|required|min:3|max:20",
