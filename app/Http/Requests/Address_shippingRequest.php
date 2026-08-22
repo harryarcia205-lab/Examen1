@@ -24,7 +24,7 @@ class Address_shippingRequest extends FormRequest
     {
         return [
             'customer_id'=>"required",
-            'order_line_id'=>"required",
+            'order_id'=>"required",
             'number'=>"required",
             'street'=>"string|required|min:3|max:20",
             'neighborhood'=>"string|required|min:3|max:20",
@@ -40,9 +40,8 @@ class Address_shippingRequest extends FormRequest
         return[
             
             'customer_id.required' => 'El cliente es requerido',
+            'order_id.required' => 'El pedido es requerido',
             'customer_id.exists' => 'El cliente no existe',
-            'order_line_id.required' => 'La linea de pedido es requerida',
-            'order_line_id.exists' => 'La línea de pedido no existe',
             'number.required' => 'El numero es requerido',
             'street.required' => 'La calle es requerida',
             'street.string' => 'El nombre de la calle solo permite caracteres',
