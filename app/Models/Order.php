@@ -8,7 +8,7 @@ class Order extends Model
 {
     protected $fillable=[
         "customer_id",
-        "id_address_shipping",
+        "address_shipping_id",
         "date_create",
         "subtotal",
         "iva",
@@ -22,8 +22,8 @@ class Order extends Model
         return $this->belongsTo(Customer::class);
     }
 
-    public function address_shippings()
+    public function address_shipping()
     {
-        return $this->hasMany(Address_shipping::class);
+        return $this->belongsTo(Address_shipping::class);
     }
 }
